@@ -3,7 +3,7 @@
 set -x
 
 fpc="fpc-3.0.4.intel-macosx"
-lazarus="lazarus-1.8.2-i686-macosx"
+lazarus="lazarus-2.0.2-i686-macosx"
 
 if [ -n "${sourceforge_mirror-}" ]; then
   mirror_string="&use_mirror=${sourceforge_mirror}"
@@ -19,10 +19,11 @@ if [ ! -x "$(command -v fpc 2>&1)" ]; then
 fi
 
 if [ ! -x "$(command -v lazbuild 2>&1)" ]; then
-  wget "https://downloads.sourceforge.net/project/lazarus/Lazarus%20Mac%20OS%20X%20i386/Lazarus%201.8.2/$lazarus.dmg?r=&ts=$(date +%s)${mirror_string-}" -O "$lazarus.dmg"
+  wget "https://downloads.sourceforge.net/project/lazarus/Lazarus%20Mac%20OS%20X%20i386/Lazarus%202.0.2/$lazarus.dmg?r=&ts=$(date +%s)${mirror_string-}" -O "$lazarus.dmg"
   hdiutil attach -quiet "$lazarus.dmg"
   pkgpath="$(hdiutil attach "$lazarus.dmg" | command awk "/Apple_HFS/ { print \$3 }")"
   sudo installer -pkg "$pkgpath/lazarus.pkg" -target /
   hdiutil unmount "$pkgpath"
   rm "$lazarus.dmg"
+  lazbuild --build-ide= --cpu=x86_64 --widgetset=cocoa
 fi
