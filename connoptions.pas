@@ -220,7 +220,9 @@ begin
   txCertPass.Visible:=cbShowAdvanced.Checked;
   edCertPass.Visible:=cbShowAdvanced.Checked;
 {$ifndef LCLgtk2}
+{$ifndef LCLCocoa}
   tabConnection.TabVisible:=cbShowAdvanced.Checked;
+{$endif LCLCocoa}
 {$endif LCLgtk2}
   tabProxy.TabVisible:=cbShowAdvanced.Checked;
   tabPaths.TabVisible:=cbShowAdvanced.Checked;
