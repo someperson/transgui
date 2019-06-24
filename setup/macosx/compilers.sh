@@ -25,5 +25,5 @@ if [ ! -x "$(command -v lazbuild 2>&1)" ]; then
   sudo installer -pkg "$pkgpath/lazarus.pkg" -target /
   hdiutil unmount "$pkgpath"
   rm "$lazarus.dmg"
-  lazbuild --build-ide= --cpu=x86_64 --widgetset=cocoa
+  lazbuild --build-ide= --compiler=ppcx64 --cpu=x86_64 --widgetset=cocoa
 fi
