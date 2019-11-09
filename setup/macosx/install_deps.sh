@@ -3,9 +3,9 @@
 set -x
 set -e
 
-lazarus_ver="2.0.4"
+lazarus_ver="2.0.6"
 fpc="fpc-3.0.4a.intel-macosx"
-lazarus="lazarus-2.0.4-i686-macosx"
+lazarus="lazarus-2.0.6-i686-macosx"
 
 if [ -n "${sourceforge_mirror-}" ]; then
   mirror_string="&use_mirror=${sourceforge_mirror}"
