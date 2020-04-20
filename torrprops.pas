@@ -103,6 +103,9 @@ procedure TTorrPropsForm.FormCreate(Sender: TObject);
 begin
   Page.ActivePageIndex:=0;
   bidiMode := GetBiDi();
+{$ifdef LCLCocoa}
+  edTrackers.Font.Color:=clWindowText;
+{$endif LCLCocoa}
 end;
 
 initialization

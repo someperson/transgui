@@ -395,6 +395,9 @@ begin
   Main.LoadTranslation;
   edLanguage.Text:=Main.FTranslationLanguage;
   edIniFileName.Text:=Main.FHomeDir+ChangeFileExt(ExtractFileName(ParamStrUTF8(0)), '.ini');
+{$ifdef LCLCocoa}
+  edPaths.Font.Color:=clWindowText;
+{$endif LCLCocoa}
 end;
 
 procedure TConnOptionsForm.FormShow(Sender: TObject);

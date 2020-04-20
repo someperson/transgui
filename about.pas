@@ -255,6 +255,9 @@ begin
   edLicense.Text:=s;
   Buttons.BorderSpacing.Right:=Buttons.BorderSpacing.Right + ScaleInt(12);
 {$endif lclcarbon}
+{$ifdef LCLCocoa}
+  edLicense.Font.Color:=clWindowText;
+{$endif LCLCocoa}
 end;
 
 procedure TAboutForm.imgDonateClick(Sender: TObject);

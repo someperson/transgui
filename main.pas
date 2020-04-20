@@ -16,7 +16,7 @@
   along with Transmission Remote GUI; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  In addition, as a special exception, the copyright holders give permission to 
+  In addition, as a special exception, the copyright holders give permission to
   link the code of portions of this program with the
   OpenSSL library under certain conditions as described in each individual
   source file, and distribute linked combinations including the two.
@@ -1559,7 +1559,11 @@ begin
   FTrackers:=TStringList.Create;
   FTrackers.Sorted:=True;
   FReconnectTimeOut:=-1;
+{$ifdef LCLCocoa}
+  FAlterColor:=clBackground;
+{$else}
   FAlterColor:=GetLikeColor(gTorrents.Color, -$10);
+{$endif LCLCocoa}
   lvFilter.Items.ExtraColumns:=2;
   gTorrents.AlternateColor:=FAlterColor;
   lvPeers.AlternateColor:=FAlterColor;
@@ -1607,7 +1611,11 @@ begin
   acAltSpeed.ImageIndex:=-1;
   tbtAltSpeed.ImageIndex:=i;
 {$endif}
+{$ifdef LCLCocoa}
+  txTransferHeader.Color:=clWindow;
+{$else}
   txTransferHeader.Color:=GetLikeColor(clBtnFace, -15);
+{$endif LCLCocoa}
   txTorrentHeader.Color:=txTransferHeader.Color;
   txTransferHeader.Caption:=' ' + txTransferHeader.Caption;
   txTorrentHeader.Caption:=' ' + txTorrentHeader.Caption;
