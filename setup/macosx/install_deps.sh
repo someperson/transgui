@@ -25,3 +25,11 @@ if [ ! -x "$(command -v lazbuild 2>&1)" ]; then
   sudo installer -pkg "lazarus.pkg" -target /
   rm "lazarus.pkg"
 fi
+
+if [ ! -f /usr/local/lib/libcrypto.dylib ]; then
+  ln -s /usr/local/Cellar/openssl*/*/lib/libcrypto.*.dylib /usr/local/lib/libcrypto.dylib
+fi
+
+if [ ! -f /usr/local/lib/libssl.dylib ]; then
+  ln -s /usr/local/Cellar/openssl*/*/lib/libssl.*.dylib /usr/local/lib/libssl.dylib
+fi
